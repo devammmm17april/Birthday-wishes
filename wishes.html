@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY Birthday</title>
+    <link rel="stylesheet" href="wishes.css">
+    <link rel="stylesheet" href="cake.html">
+    <link rel="stylesheet" href="cake.css">
+    <link rel="stylesheet" href="cake.js">
+    
+</head>
+
+<body>
+    <div class="container">
+        <img src="birthday img-5.png" class="birthday-img img-left">
+        <img src="birthday img-3.png" class="birthday-img img-right">
+        <div class="heart"></div>
+
+        <div class="heart"></div>
+        <h1 class="birthday-text"><b>🎂 Happy Birthday ❤️💃🏻🎉</b></h1>
+        <p class="message"><b> 💖 Wishing you a day filled with happiness and a year filled with joy. You are truly
+            special! ✨💖</b></p>
+        <button onclick="playSong()">Click for a Surprise! 🎶</button>
+        <button onclick="openMemories()">📸 View Memories</button>
+
+        <audio id="song" src="birthday-song.mp3"></audio>
+    </div>
+    <div id="fireworks-conatiner"></div>
+    <div id="balloons-conatiner"></div>
+    <div class="childhood-section">
+        🎀 जन्मदिन की हार्दिक शुभकामनाएँ 🎗️🌈
+    </div>
+    <!-- Floating Clouds -->
+    <div class="cloud" style="top: 10px; left: 50px;"></div>
+    <div class="cloud" style="top: 30px; left: 250px;"></div>
+    <div class="cloud" style="top: 20px; left: 500px;"></div>
+
+    <!-- Carousel Toy -->
+    <img src="birthday img-4.jpg" class="carousel">
+    <script src="wishes.js"></script>
+    <script src="cake.js"></script>  <!-- Correct way to include JavaScript -->
+    <script src="memories.js"></script>
+    <div class="cake-container">
+        <div class="cake">
+            🎂
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+        </div>
+        <p class="blow-text">Blow the candle (click) to celebrate!</p>
+    </div>
+    
+
+</body>
+</html>

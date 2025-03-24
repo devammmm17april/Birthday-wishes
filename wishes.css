@@ -1,0 +1,468 @@
+/* 🌈 Background & Layout */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #d31218, #b22fde, #f52941);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* General Image Styling */
+.birthday-img {
+    width: 280px; /* Adjust size as needed */
+    height: auto;
+    position: absolute;
+    top: 5%; /* Place near the top */
+    z-index: 20; /* Ensure it appears above the heart */
+    transition: transform 0.3s ease;
+}
+
+/* Left Image - Top Left Corner */
+.img-left {
+    right: 100%;
+    transform: rotate(-25deg);
+}
+
+/* Right Image - Top Right Corner */
+.img-right {
+    left: 100%;
+    transform: rotate(25deg);
+}
+
+/* Add Hover Effect (Optional) */
+.birthday-img:hover {
+    transform: rotate(0deg) scale(1.1);
+}
+
+
+/* 📦 Main Container */
+.container {
+    position: relative;
+    z-index: 10;
+}
+
+/* ❤️ Heart Animation */
+.heart {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    animation: heartbeat 1s infinite alternate;
+    z-index: 10;  /* Higher than the clouds */
+}
+
+.heart::before, .heart::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before { top: -50px; left: 0; }
+.heart::after { left: 50px; top: 0; }
+
+@keyframes heartbeat {
+    from { transform: translate(-50%, -50%) scale(1) rotate(-45deg); }
+    to { transform: translate(-50%, -50%) scale(1.2) rotate(-45deg); }
+}
+
+/* ✨ Text Styling */
+.birthday-text {
+    font-size: 2.5rem;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+    color: #eddfeb;
+    opacity: 0;
+    animation: fadeIn 2s 2s forwards;
+}
+
+.message {
+    font-size: 1.2rem;
+    color: #fff;
+    opacity: 0;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    animation: fadeIn 2s 4s forwards;
+}
+
+/* 🎵 Button */
+button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border: none;
+    background: red;
+    color: white;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 0;
+    animation: fadeIn 2s 4s forwards;
+}
+
+button:hover {
+    background: #e91e63;
+    box-shadow: 0px 0px 20px rgb(194, 14, 74);
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* 🎈 Balloons */
+#balloons-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.balloon {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: red;
+    border-radius: 50%;
+    bottom: -100px;
+    animation: floatBalloon 8s linear infinite;
+}
+
+@keyframes floatBalloon {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* 🎆 Fireworks */
+/* 🎆 Fireworks Container */
+#fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50; /* Ensure it's on top */
+}
+
+/* 🔥 Firework Effect */
+.firework {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: yellow;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: explode 1.5s ease-out forwards;
+}
+
+/* Explosion Effect */
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(5); opacity: 0; }
+}
+
+/* 🎊 Confetti */
+.confetti {
+    position: fixed;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: #ffeb3b;
+    opacity: 0.7;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); }
+}
+
+/* 🌈 Childhood Theme for Upper Part */
+.childhood-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30vh;
+    background: linear-gradient(to bottom, #ffcc00, #ff6699);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ☁️ Floating Clouds */
+.cloud {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.8;
+    animation: moveClouds 10s infinite linear;
+}
+
+.cloud::before, .cloud::after {
+    content: "";
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 60px;
+    height: 60px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud::after {
+    width: 80px;
+    height: 80px;
+    top: -30px;
+    left: 40px;
+}
+
+@keyframes moveClouds {
+    from { transform: translateX(-150px); }
+    to { transform: translateX(100vw); }
+}
+
+/* 🎠 Carousel (Childhood Toy) */
+.carousel {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 30px;
+    left: 10%;
+    animation: spinCarousel 5s infinite linear;
+}
+
+@keyframes spinCarousel {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.birthday-text, .message {
+    position: relative;  /* Ensures it stays above */
+    z-index: 20;  /* Higher than the heart */
+}
+
+/* 💖 Floating Hearts Effect */
+.heart-float {
+    position: fixed;
+    color: red;
+    font-size: 20px;
+    animation: floatHeart 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+/* Cake & Candle */
+.cake-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cake {
+    font-size: 50px;
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+}
+
+.candle {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 10px;
+    height: 30px;
+    background: red;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.flame {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 10px;
+    height: 15px;
+    background: orange;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.8; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    100% { opacity: 0; }
+}
+
+/* Fireworks */
+#fireworks-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    border-radius: 50%;
+    animation: explode 1.5s forwards;
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(5); opacity: 0; }
+}
+#balloons-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -50px;
+    width: 30px;
+    height: 40px;
+    background: red;
+    border-radius: 50%;
+    animation: floatUp 5s infinite linear;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100vh); }
+}
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: randomColor();
+    border-radius: 50%;
+    animation: fall 3s linear;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+.childhood-section {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background: linear-gradient(90deg, #ff0000, #ff7300, #ffeb00, #38ff00, #0099ff, #7a00ff, #ff00b7);
+    background-size: 400% 400%;
+    animation: shimmer 3s infinite;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* Cake & Candle */
+.cake-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cake {
+    font-size: 50px;
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+}
+
+.candle {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    width: 10px;
+    height: 30px;
+    background: red;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.flame {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 10px;
+    height: 15px;
+    background: orange;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: flicker 1s infinite alternate;
+}
+
+/* Flickering Flame Animation */
+@keyframes flicker {
+    0% { opacity: 0.8; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Extinguish Flame Animation */
+@keyframes fadeOut {
+    100% { opacity: 0; }
+}
+
+/* Fireworks */
+#fireworks-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    border-radius: 50%;
+    animation: explode 1.5s forwards;
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(5); opacity: 0; }
+}

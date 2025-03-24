@@ -1,0 +1,99 @@
+/* Center Everything */
+body {
+    text-align: center;
+    background: linear-gradient(45deg, #ff9a44, #ff4b2b);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Cake Container */
+.cake-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Cake Emoji */
+.cake-emoji {
+    font-size: 5rem;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Sparkling Glow Around Cake */
+.cake-container:hover {
+    filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.9));
+}
+
+/* Candle Flame */
+.flame {
+    width: 15px;
+    height: 25px;
+    background: orange;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -30px;
+    transform: translateX(-50%);
+    animation: flicker 0.5s infinite alternate;
+}
+
+/* Flickering Effect */
+@keyframes flicker {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Enlarged Cake After Blowing Candle */
+.enlarged {
+    transform: scale(1.2);
+}
+
+/* Birthday Message (Hidden Initially) */
+#birthday-message {
+    font-size: 2rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Show Message */
+.show-message {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Floating Hearts Animation */
+@keyframes floatHeart {
+    0% { transform: translateY(0) scale(0.5); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+}
+
+.heart {
+    position: absolute;
+    bottom: 0;
+    font-size: 2rem;
+    animation: floatHeart 5s linear infinite;
+}
+
+/* 🎆 Fireworks Animation */
+.fireworks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('fireworks.gif') center no-repeat;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Show Fireworks */
+.show-fireworks {
+    opacity: 1;
+}
